@@ -4,6 +4,8 @@ INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_
 INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Anna', 'Wojcik', 'Primatech', 'abc@prime.com', '444', '2');
 INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Wojciech', 'Zielony', 'Los Pollos', 'gg@pollos.pl', '8888888', '1');
 INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Monika', 'Spodnie', 'Weyland', 'olw@weyland.org', '16543321', '2');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Wojciech', 'Zielony', 'Los Pollos', 'gg@pollos.pl', '8888888', '1');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Wojciech', 'Zielony', 'Los Pollos', 'gg@pollos.pl', '8888888', '1');
 
 
 
