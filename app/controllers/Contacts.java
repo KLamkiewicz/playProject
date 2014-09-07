@@ -46,7 +46,7 @@ public class Contacts extends Controller{
     @Transactional
     public static Result delete(Long id){
     	Logger.debug("DELETING " +  id);
-    	
+    	UserManager.removeContact(id);
     	return redirect(routes.Application.index());
     }
     

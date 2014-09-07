@@ -8,13 +8,13 @@ import play.data.validation.Constraints.Required;
 public class RegisterForm {
 	
 //	@Required
-//	@MinLength(3)
-//	@MaxLength(15)
+	@MinLength(3)
+	@MaxLength(15)
 	String login;
 //	
 //	@Required
-//	@MinLength(6)
-//	@MaxLength(15)
+	@MinLength(3)
+	@MaxLength(15)
 	String password;
 	
 	String matchingPassword;

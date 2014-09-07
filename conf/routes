@@ -13,6 +13,7 @@ GET		/add						controllers.Contacts.add()
 POST	/add					    controllers.Contacts.addContact()
 GET		/delete/:id					controllers.Contacts.delete(id: Long)
 POST	/register					controllers.Application.registerAuth()
+GET		/users						controllers.Application.userList()
 
 
 

@@ -77,9 +77,12 @@ public class Application extends Controller {
 
     }
     
+    @Transactional
+    @Security.Authenticated(Secured.class)
     public static Result userList() {
+    	List<UserAccount> listOfUsers = UserManager.getListOfUsers();
     	
-    	return ok();
+    	return ok(users.render(listOfUsers));
     }
 
     
