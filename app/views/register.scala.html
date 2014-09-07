@@ -1,18 +1,27 @@
 @(form: Form[RegisterForm])
 
 @main {
-
-		@helper.form(routes.Application.registerAuth(), 'id->"registerForm"){
-		<input type="text" id="login" name="login"/>
-		<input type="password" id="password" name="password"/>
-		<input type="password" id="matchingPassword" name="matchingPassword"/>
+	<div class="rlContainer">
+		@helper.form(routes.Application.registerAuth(), 'id->"registerForm", 'class->"form-signin"){
+		<input type="text" id="login" name="login" class="form-control" placeholder="Login" required/>
+		<input type="password" id="password" name="password" class="form-control" placeholder="Password" required/>
+		<input type="password" id="matchingPassword" name="matchingPassword" class="form-control" placeholder="Repeat password" required/>
 		
-		<input type="submit" value="Login"/>
+		<input  class="btn btn-lg btn-primary btn-block" type="submit" value="Register" class="lrButton"/>
 	}
 	
-	@if(form.hasGlobalErrors) {
-	    <p class="error">
-	        @form.globalError.message
-	    </p>
-	}
+	</div>
+	
+
+	
+	
+	
+	<div class="lrErrors">
+		<a href="@routes.Application.index()" class="btn btn-success btn-lg">Login</a>
+		@if(form.hasGlobalErrors) {
+		    <p class="error">
+		        @form.globalError.message
+		    </p>
+		}
+	</div>
 }

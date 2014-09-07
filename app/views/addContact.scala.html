@@ -1,15 +1,16 @@
 @(form: Form[Models.Contact])
 
 @main{
-	
-	@helper.form(routes.Contacts.addContact(), 'id->"contactForm"){
-		<input type="text" id="contactName" name="name"/>
-		<input type="text" id="contactSurname" name="surname"/>
-		<input type="text" id="contactCompanyName" name="companyName"/>
-		<input type="text" id="contactEmail" name="email"/>
-		<input type="text" id="contactPhoneNumber" name="phoneNumber"/>
-		<input type="submit" value="Add contact"/>
-	}	
+	<div class="rlContainer">
+		@helper.form(routes.Contacts.addContact(), 'id->"contactForm", 'class->"form-signin"){
+			<input type="text" id="contactName" name="name" class="form-control" placeholder="Contact name" required/>
+			<input type="text" id="contactSurname" name="surname" class="form-control" placeholder="Surname" required/>
+			<input type="text" id="contactCompanyName" name="companyName" class="form-control" placeholder="Company name" required/>
+			<input type="text" id="contactEmail" name="email" class="form-control" placeholder="Email" required/>
+			<input type="text" id="contactPhoneNumber" name="phoneNumber" class="form-control" placeholder="Phone number" required/>
+			<input type="submit" value="Add contact"  class="btn btn-lg btn-primary btn-block lrButton" />
+		}	
+	</div>
 
 
 @if(form.hasErrors) {

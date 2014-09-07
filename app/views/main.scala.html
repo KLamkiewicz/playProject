@@ -5,24 +5,23 @@
 <html>
     <head>
         <title>Welcome!</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
     </head>
     <body>
-    	<div id="nav">
-    	    <div id="contactListNav">
-    			<a href="@routes.Application.index()">Contacts</a>
-    		</div>
-    		<div id="usersNav">
-    			<a href="@routes.Application.userList()">User list</a>
-    		</div>
-    		<div id="logoutNav">
-		    	@if(request.uri != "/login" && request.uri != "/register") {
-		    		<a href="@routes.Application.logout()">Logout</a> 
-		    	}
-	    	</div>
-    	</div>
+    
+
+<ol class="breadcrumb">
+	  @if(request.uri != "/login" && request.uri != "/register") {
+	  	  <li class="nel"><a href="@routes.Contacts.addContact()">New contact</a> </li>
+		  <li class="nel"><a href="@routes.Application.index()">Contacts</a></li>
+		  <li class="nel"><a href="@routes.Application.userList()">User list</a></li>
+		  <li class="nel"><a href="@routes.Application.logout()">Logout</a> </li>
+
+	  }
+</ol>
     	
 
         @content

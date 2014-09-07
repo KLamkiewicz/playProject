@@ -1,19 +1,32 @@
 @(form: Form[LoginForm])
 
 @main{
+	<div class="rlContainer">
+		@helper.form(routes.Application.authenticate(), 'id->"loginForm", 'class->"form-signin"){
+			<h2 class="form-signin-heading">Sign in</h2>
+			
+			<input type="text" id="login" name="login" class="form-control" placeholder="Login" required/>
+			<input type="password" id="password" name="password" class="form-control" placeholder="Password" required/>
+			
+			<input  class="btn btn-lg btn-primary btn-block lrButton" type="submit" value="Login"/>
+		}
+				<a href="/register">Register</a>
+	</div>
 	
-	@helper.form(routes.Application.authenticate(), 'id->"loginForm"){
-		<input type="text" id="login" name="login"/>
-		<input type="password" id="password" name="password"/>
-		
-		<input type="submit" value="Login"/>
-	}
-	
-	<a href="/register">Register</a>
 
-	@if(form.hasGlobalErrors) {
-	    <p class="error">
-	        @form.globalError.message
-	    </p>
-	}
+
+
+	
+	
+	
+	
+	
+
+	<div class="lrErrors">
+		@if(form.hasGlobalErrors) {
+		    <p class="error">
+		        @form.globalError.message
+		    </p>
+		}
+	</div>
 }

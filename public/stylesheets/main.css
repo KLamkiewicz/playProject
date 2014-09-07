@@ -1,0 +1,36 @@
+.rlContainer{
+	width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lrButton{
+	width: 150px;
+	margin: 0 auto;
+}
+
+
+
+.lrErrors{
+	text-align: center;
+}
+#passwordErrors{
+	text-align: center;
+}
+.breadcrumb{
+	text-align:right;
+	
+}
+.nel{
+	padding-right: 15px;
+}
+
+#newContact{
+	float: right;
+	padding: 10px 30px 30px 30px;
+}
+
+#usersTable{
+	width:500px;
+	margin: 0 auto;
+}
