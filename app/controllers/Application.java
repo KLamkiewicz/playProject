@@ -27,6 +27,7 @@ public class Application extends Controller {
 		
     	return ok(index.render(currentUser, contactList));
     }
+    
 	
 	public static Result register(){
 		return ok(register.render(Form.form(RegisterForm.class)));

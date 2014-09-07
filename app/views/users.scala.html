@@ -1,5 +1,20 @@
-@(list: List[Models.UserAccount])
+@(list: List[Models.UserAccount]) @main{
 
-@main{
+	<div id="usersList">
+		<table border=2>
+			<tr>
+				<td>Login</td>
+				<td>Role</td>
+
+			</tr>
 	
+			@for(l <- list) {
+			<tr>
+				<td>@l.getLogin()</td>
+				<td>@l.getRole()</td>
+			</tr>
+			}
+		</table>
+	</div>
+
 }

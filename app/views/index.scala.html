@@ -1,13 +1,14 @@
 @(user : String, contactList: List[Models.Contact]) 
 @import helper._
 
-@main{ WELCOME TO THE MAIN PAGE @user
-<br />
-This is the contacts list!
+@main { 
+	WELCOME TO THE MAIN PAGE @user
+	<br />
+	This is the contacts list!
 <br />
 <div id="contacts-wrap">
 	<div id="contacts">
-		<table border=2>
+		<table border=2 id="contactsTable">
 			<tr>
 				<td>Name</td>
 				<td>Surname</td>
@@ -38,3 +39,4 @@ This is the contacts list!
 </div>
 
 }
+
