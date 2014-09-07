@@ -1,0 +1,12 @@
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Jan', 'Kowalski', 'Umbrella', 'jk@ibm.com', '100200300', '1');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Adam', 'Nowak', 'Skynet', 'bbc@hotmail.com', '10043200', '2');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Zbigniew', 'Niemiec', 'Sadtech', 'bbc@hotmail.com', '16543321', '1');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Anna', 'Wojcik', 'Primatech', 'abc@prime.com', '444', '2');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Wojciech', 'Zielony', 'Los Pollos', 'gg@pollos.pl', '8888888', '1');
+INSERT INTO CONTACT(name, surname, companyName, email, phoneNumber, userAccount_id) VALUES ('Monika', 'Spodnie', 'Weyland', 'olw@weyland.org', '16543321', '2');
+
+
+
+INSERT INTO USERACCOUNT(login, password, role) VALUES ('admin', 'admin', 'admin');
+INSERT INTO USERACCOUNT(login, password, role) VALUES ('jozef', 'nowak', 'user');
+INSERT INTO USERACCOUNT(login, password, role) VALUES ('roman', 'romanski', 'user');

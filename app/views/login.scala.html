@@ -1,0 +1,19 @@
+@(form: Form[LoginForm])
+
+@main{
+	
+	@helper.form(routes.Application.authenticate(), 'id->"loginForm"){
+		<input type="text" id="login" name="login"/>
+		<input type="password" id="password" name="password"/>
+		
+		<input type="submit" value="Login"/>
+	}
+	
+	<a href="/register">Register</a>
+
+	@if(form.hasGlobalErrors) {
+	    <p class="error">
+	        @form.globalError.message
+	    </p>
+	}
+}

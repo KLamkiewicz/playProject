@@ -1,0 +1,39 @@
+@(user : String, contactList: List[Models.Contact]) @import helper._
+
+@main{ WELCOME TO THE MAIN PAGE @user
+<br />
+This is the contacts list!
+<br />
+<div id="contacts-wrap">
+	<div id="contacts">
+		<table border=2>
+			<tr>
+				<td>Name</td>
+				<td>Surname</td>
+				<td>Company name</td>
+				<td>Email</td>
+				<td>Phone number</td>
+			</tr>
+
+			@for(l <- contactList) {
+				<tr>
+					<td>@l.getName()</td>
+					<td>@l.getSurname()</td>
+					<td>@l.getCompanyName()</td>
+					<td>@l.getEmail()</td>
+					<td>@l.getPhoneNumber()</td>
+					<td>
+						<form action="@routes.Contacts.delete(l.getId())">
+							<input type="submit" value="Delete">
+						</form>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+	<div id="newContact">
+		<a href="@routes.Contacts.addContact()">Add new contact</a>
+	</div>
+</div>
+
+}

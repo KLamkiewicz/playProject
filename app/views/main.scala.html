@@ -1,0 +1,21 @@
+@(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Welcome!</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+    <body>
+    	
+    	@if(request.uri != "/login" && request.uri != "/register") {
+    		<a href="@routes.Application.logout()">Logout</a> 
+    	}
+    	
+
+        @content
+    </body>
+</html>
