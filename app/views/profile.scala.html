@@ -1,0 +1,17 @@
+@(user: models.UserAccount)
+
+@main	{
+	This is a profile of @user.getLogin() you have registered at @user.getSimpleRegistration()
+	
+	<div id="picture-wrap">
+		<div id="picture">
+			<img src="@routes.Application.getImage"/>
+		</div>
+		<div id="pictureUpload">
+			<form action="@routes.Application.uploadPicture"  method="POST" enctype="multipart/form-data">
+   				<input type="file" name="picture">
+   				<input type="submit" value="Upload">
+			</form>
+		</div>
+	</div>
+}

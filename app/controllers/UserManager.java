@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,9 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import models.Contact;
+import models.UserAccount;
+
 import org.hibernate.Session;
 import org.hibernate.ejb.EntityManagerFactoryImpl;
 
@@ -19,8 +24,6 @@ import play.Logger;
 import play.db.jpa.JPA;
 import play.libs.F;
 import play.db.jpa.Transactional;
-import Models.Contact;
-import Models.UserAccount;
 
 public class UserManager {
 	
@@ -33,8 +36,7 @@ public class UserManager {
 		final String currentLogin = login;
 		final String currentPasssword = password;
 		boolean added = false;
-		
-					
+			
   			Query q = JPA.em().createQuery("select u FROM UserAccount u where login=:login").setParameter("login", currentLogin);
   			Logger.debug("Checking if user exists");
   			if(q.getResultList().isEmpty()){
@@ -104,6 +106,31 @@ public class UserManager {
 		
 		return accountList;
 		
+	}
+	
+	public static UserAccount getUser(String user){
+		UserAccount account;
+		account = (UserAccount) JPA.em().createQuery("select u FROM UserAccount u where login=:login").setParameter("login", user).getResultList().get(0);
+		
+		return account;
+	}
+	
+	public static void uploadPicture(File picture, String login){
+		FileInputStream fileInputStream=null;
+		UserAccount account = (UserAccount) JPA.em().createQuery("select u FROM UserAccount u where login=:login").setParameter("login", login).getResultList().get(0);
+		byte[] picB = new byte[(int) picture.length()];
+		
+		try{
+		    fileInputStream = new FileInputStream(picture);
+		    fileInputStream.read(picB);
+		    fileInputStream.close();
+		    account.setPicture(picB);
+		    //JPA.em().merge(account);
+		    
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	
 	}
 	
 

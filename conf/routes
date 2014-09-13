@@ -14,7 +14,9 @@ POST	/add					    controllers.Contacts.addContact()
 GET		/delete/:id					controllers.Contacts.delete(id: Long)
 POST	/register					controllers.Application.registerAuth()
 GET		/users						controllers.Application.userList()
-
+GET		/profile					controllers.Application.profile()
+POST	/uploadPicture				controllers.Application.uploadPicture
+GET		/image						controllers.Application.getImage()
 
 
 # Map static resources from the /public folder to the /assets URL path

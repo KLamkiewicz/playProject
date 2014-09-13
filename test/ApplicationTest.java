@@ -5,11 +5,10 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 
-import Models.UserAccount;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
 import controllers.UserManager;
+import models.UserAccount;
 
 import org.fest.assertions.AssertExtension;
 

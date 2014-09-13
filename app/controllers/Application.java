@@ -1,19 +1,23 @@
 package controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 
+import models.Contact;
+import models.UserAccount;
 import akka.event.Logging.Debug;
 import play.*;
 import play.data.Form;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
-import Models.Contact;
-import Models.UserAccount;
 import play.mvc.*;
+import play.mvc.Http.MultipartFormData;
+import play.mvc.Http.MultipartFormData.FilePart;
 import views.html.*;
 
 
@@ -28,7 +32,47 @@ public class Application extends Controller {
     	return ok(index.render(currentUser, contactList));
     }
     
-	
+    @Transactional
+	public static Result profile() {
+		UserAccount u = UserManager.getUser(session().get("login"));
+		return ok(profile.render(u));
+	}
+    
+    @Transactional
+    public static Result getImage() {
+    	UserAccount u = UserManager.getUser(session().get("login"));
+    	ByteArrayInputStream img = null;
+    	
+    	if(u.getPicture() != null){
+    		img = new ByteArrayInputStream(u.getPicture());
+    	}else{
+    		//no photo get from assets
+    	}
+    	
+    	
+    	return ok(img).as("image/jpeg");
+    }
+    
+    @Transactional
+    public static Result uploadPicture() {
+		  MultipartFormData body = request().body().asMultipartFormData();
+		  FilePart picture = body.getFile("picture");
+		  if (picture != null) {
+		    String fileName = picture.getFilename();
+		    String contentType = picture.getContentType(); 
+		    File file = picture.getFile();
+		    Logger.debug(contentType);
+		    if(contentType.contains("jpeg") || contentType.contains("png")){
+		    	Logger.debug("GUT");
+		    	UserManager.uploadPicture(file, session().get("login"));
+		    }
+		    return ok("File uploaded");
+		  } else {
+		    flash("error", "Missing file");
+		    return redirect(routes.Application.index());    
+		  }
+    }
+    
 	public static Result register(){
 		return ok(register.render(Form.form(RegisterForm.class)));
 	}

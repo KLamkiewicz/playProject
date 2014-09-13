@@ -13,15 +13,15 @@
     <body>
     
 
-<ol class="breadcrumb">
-	  @if(request.uri != "/login" && request.uri != "/register") {
-	  	  <li class="nel"><a href="@routes.Contacts.addContact()">New contact</a> </li>
-		  <li class="nel"><a href="@routes.Application.index()">Contacts</a></li>
-		  <li class="nel"><a href="@routes.Application.userList()">User list</a></li>
-		  <li class="nel"><a href="@routes.Application.logout()">Logout</a> </li>
-
-	  }
-</ol>
+		<ol class="breadcrumb">
+			  @if(request.uri != "/login" && request.uri != "/register") {
+			  	  <li class="nel"><a href="@routes.Contacts.addContact()">New contact</a> </li>
+				  <li class="nel"><a href="@routes.Application.index()">Contacts</a></li>
+				  <li class="nel"><a href="@routes.Application.userList()">User list</a></li>
+				  <li class="nel"><a href="@routes.Application.logout()">Logout</a> </li>
+		
+			  }
+		</ol>
     	
 
         @content
